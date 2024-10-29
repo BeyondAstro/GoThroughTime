@@ -6,8 +6,8 @@ public class respawn : MonoBehaviour
 {
    public Transform respawnPoint;
    void OnTriggerEnter(Collider other){
-             if (other.gameObject.tag == "Respawn") {
-                 gameObject.transform.position = respawnPoint.position;
-             }
+            if (other.gameObject.tag == "Player") {
+                other.gameObject.transform.position = respawnPoint.position;
+            }
       }
 }
