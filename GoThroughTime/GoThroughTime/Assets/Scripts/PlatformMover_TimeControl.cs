@@ -6,7 +6,7 @@ public class PlatformMover_TimeControl : MonoBehaviour{
 
 	public Transform[] movePoints;
 	public float moveSpeed = 10f;
-	float switchThreshold = 5f;
+	float switchThreshold = 1f;
 
 	int currentPoint = 0; //previous point
 	int nextPoint = 1;
@@ -23,8 +23,15 @@ public class PlatformMover_TimeControl : MonoBehaviour{
 	void Update(){
 		// listeners to make this object respon to time controls:
 		if (Input.GetButtonDown("platformPause")){
-			moveForward=false;
-			moveBackward=false;
+			if (!moveForward && !moveBackward)
+            {
+				moveForward = true;
+				moveBackward = false;
+            } else
+            {
+				moveForward = false;
+				moveBackward = false;
+			}
 		}
 		if (Input.GetButtonDown("platformBack")){
 			moveForward=false;
