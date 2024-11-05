@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformMover_TimeControl : MonoBehaviour{
 
 	public Transform[] movePoints;
-	public float moveSpeed = 10f;
+	public float moveSpeed = 6f;
 	float switchThreshold = 1f;
 
 	int currentPoint = 0; //previous point

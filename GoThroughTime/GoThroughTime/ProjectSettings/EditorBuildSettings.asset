@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/yssies stuff/Starting scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/GAMEOVER.unity
+    path: Assets/yssies stuff/GAMEOVER.unity
     guid: 14a4f663bda2a4c2da82c9bab6aad500
   m_configObjects: {}
