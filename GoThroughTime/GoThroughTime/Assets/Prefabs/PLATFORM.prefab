@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4068894621450732998}
   - component: {fileID: 2263571294068327607}
   - component: {fileID: 6347249614354945496}
-  - component: {fileID: 5350193815319481988}
+  - component: {fileID: 4799123911343641846}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282317633383319279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28, y: -0.51, z: -0.35}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28000003, y: -0.51, z: -0.35}
   m_LocalScale: {x: 0.9, y: 0.88, z: 0.61}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5350193815319481988
+--- !u!65 &4799123911343641846
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,10 +197,10 @@ MonoBehaviour:
   - {fileID: 3981165447808469771}
   - {fileID: 2074962001728624323}
   - {fileID: 3193843082803184935}
-  moveSpeed: 10
+  moveSpeed: 5
   moveForward: 1
-  moveBackward: 0
-  makeLinear: 0
+  moveBackward: 1
+  makeLinear: 1
 --- !u!1 &5956314381253589763
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 6267187783493829952}
   - component: {fileID: 3904121340909899430}
   - component: {fileID: 2983442873110436301}
-  - component: {fileID: 6623812910953608786}
+  - component: {fileID: 2944934037193669613}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -227,9 +227,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5956314381253589763}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.333, y: -0.35, z: 0.263}
-  m_LocalScale: {x: 0.84, y: 0.67, z: 0.79}
+  m_LocalScale: {x: 0.84000003, y: 0.67, z: 0.79}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4377604400870753503}
@@ -285,7 +285,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6623812910953608786
+--- !u!65 &2944934037193669613
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 4377604400870753503}
   - component: {fileID: 6923275804019825133}
   - component: {fileID: 7883922403604041886}
-  - component: {fileID: 1546227628379125167}
+  - component: {fileID: 3040149277650611040}
   m_Layer: 0
   m_Name: platform_art
   m_TagString: Untagged
@@ -392,7 +392,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1546227628379125167
+--- !u!65 &3040149277650611040
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

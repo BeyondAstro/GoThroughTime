@@ -13,7 +13,7 @@ public class PlatformMover_TimeControl : MonoBehaviour{
 	public bool moveForward = true;
 	public bool moveBackward = false;
 
-	public bool makeLinear=false;
+	public bool makeLinear = false;
 
     void Start(){
 		//starting position:
@@ -105,17 +105,23 @@ public class PlatformMover_TimeControl : MonoBehaviour{
     }
 
 	// allow player to ride moving platforms by making them children of platforms on contact:
-	private void OnCollisionEnter(Collision other){
-        if (other.gameObject.tag == "Player"){
-            other.collider.transform.SetParent(transform); // so Player moves with platform
-        }
+	private void OnTriggerEnter(Collider other){
+
+            if (other.gameObject.tag == "Player"){
+                    other.transform.SetParent(transform); // so Player moves with platform
+              }		
+
+        
     }
 
 	// releasing player when player loses contact:
-    private void OnCollisionExit(Collision other){
-        if (other.gameObject.tag == "Player"){
-            other.collider.transform.SetParent(null); // Player not parented when off platform
-        }
+    private void OnTriggerExit(Collider other){
+
+            if (other.gameObject.tag == "Player"){
+                    other.transform.SetParent(null); // Player not parented when off platform
+            }
+
     }
+    
 
 }
