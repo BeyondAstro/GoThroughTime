@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Junior Items/Main Menu .unity
     guid: 6e6656d5c40dd42f8a4068932c009ef8
+  - enabled: 1
+    path: Assets/yssies stuff/tutorial.unity
+    guid: 27f7e1f64b4e6489ea047288f043f6ac
+  - enabled: 1
+    path: Assets/yssies stuff/learn_controls.unity
+    guid: 268134a6a5f5a46c9883f72947df661a
   m_configObjects: {}

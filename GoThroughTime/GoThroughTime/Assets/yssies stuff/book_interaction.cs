@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class book_interaction : MonoBehaviour
 { 
-    public GameObject bookDialoguePanel;     // UI panel for the book dialogue
+    public GameObject bookDialoguePanel; 
+    public GameObject bookGlow;    // UI panel for the book dialogue
     public Dialogue bookDialogue;
     public Dialogue dialogue; 
     public Text dialogueText;  
     private Queue<string> sentences;           // Dialogue for the book (set via Inspector)
     private bool playerNearby = false;       // Flag to check if the player is nearby
-    public GameObject fpsController;  
+    public GameObject fpsController;        // Reference to the FPS controller object
 
     void Start()
     {
         sentences = new Queue<string>();
+        
     }  
 
     void Update()
@@ -24,26 +26,26 @@ public class book_interaction : MonoBehaviour
         if (playerNearby && Input.GetKeyDown(KeyCode.E)) // Detect player interaction
         {
             StartBookDialogue(bookDialogue);
+            bookGlow.SetActive(false);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (playerNearby && Input.GetKeyDown(KeyCode.Space)) // Detect player interaction
         {
-            DisplayNextSentence();
+            DisplayNextSentenceBook();
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
+    }
+    private void OnTriggerEnter(Collider book)
     {
-        if (other.CompareTag("Player")) // Ensure it's the player interacting
+        if (book.CompareTag("Player")) // Ensure it's the player interacting
         {
             Debug.Log("Book touched!");
             playerNearby = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider book)
     {
-        if (other.CompareTag("Player"))  // When the player exits the trigger zone
+        if (book.CompareTag("Player"))  // When the player exits the trigger zone
         {
             playerNearby = false;  // Set playerNearby to false
         }
@@ -52,7 +54,7 @@ public class book_interaction : MonoBehaviour
     public void StartBookDialogue(Dialogue dialogue)
     {
         bookDialoguePanel.SetActive(true); // Show dialogue panel
-        fpsController.GetComponent<CharacterController>().enabled = false;
+        DisableFPSControls();
 
         sentences.Clear();
 
@@ -61,9 +63,9 @@ public class book_interaction : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
-        DisplayNextSentence();
+        DisplayNextSentenceBook();
     }
-    public void DisplayNextSentence()
+    public void DisplayNextSentenceBook()
     {
         if (sentences.Count == 0)
         {
@@ -89,6 +91,16 @@ public class book_interaction : MonoBehaviour
         // Hide the book-specific dialogue panel
         bookDialoguePanel.SetActive(false);
         dialogueText.text = "";
-        fpsController.GetComponent<CharacterController>().enabled = true;
+        EnableFPSControls();
+        SceneManager.LoadScene("learn_controls");
     }
+
+    public void DisableFPSControls()
+    {
+       
+    }
+
+    public void EnableFPSControls()
+    {}
+       
 }
