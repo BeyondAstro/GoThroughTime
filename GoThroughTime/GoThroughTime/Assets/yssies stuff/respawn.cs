@@ -9,7 +9,7 @@ public class respawn : MonoBehaviour
    void OnTriggerEnter(Collider other){
             if (other.gameObject.tag == "Player") {
                 other.gameObject.transform.position = respawnPoint.position;
-                SceneManager.LoadScene("GAMEOVER");
+                SceneManager.LoadScene("End Scene");
             }
       }
 }
