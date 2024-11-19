@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class respawn : MonoBehaviour
 {
    public Transform respawnPoint;
+   public string loadScene;
    void OnTriggerEnter(Collider other){
             if (other.gameObject.tag == "Player") {
                 other.gameObject.transform.position = respawnPoint.position;
-                SceneManager.LoadScene("End Scene");
+                SceneManager.LoadScene(loadScene);
             }
       }
 }
