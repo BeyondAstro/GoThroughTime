@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1460,6 +1460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: secHand
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 15c586c4c6ab43c479b05f2b8e000007, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1467,6 +1471,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 15c586c4c6ab43c479b05f2b8e000007, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1255973951}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 15c586c4c6ab43c479b05f2b8e000007, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1255973952}
   m_SourcePrefab: {fileID: 100100000, guid: 15c586c4c6ab43c479b05f2b8e000007, type: 3}
 --- !u!4 &1255973949 stripped
 Transform:
@@ -1499,6 +1506,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.032325096, y: 0.02, z: 0.104469225}
   m_Center: {x: -0.0000000023142652, y: 9.00285e-16, z: -0.042234644}
+--- !u!114 &1255973952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255973950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e2567418bae4e99a76d3b848107b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextLevel: End Scene
 --- !u!1 &1271944122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3354453053368413886, guid: 2a7e67c173059214fbcf28a759f5c95d, type: 3}

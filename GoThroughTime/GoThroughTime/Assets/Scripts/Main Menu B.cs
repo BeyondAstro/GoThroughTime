@@ -8,7 +8,7 @@ public class MainMenuB : MonoBehaviour
     // Load Scene
     public void Play()
     {
-        SceneManager.LoadScene("Starting scene");
+        SceneManager.LoadScene("tutorial");
 
     }
 
