@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class respawn : MonoBehaviour
 {
    public Transform respawnPoint;
-   public string loadScene;
+   public string loadScene = "yssie";
    void OnTriggerEnter(Collider other){
             if (other.gameObject.tag == "Player") {
                 other.gameObject.transform.position = respawnPoint.position;
