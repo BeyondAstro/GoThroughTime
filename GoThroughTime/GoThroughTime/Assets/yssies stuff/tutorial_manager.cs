@@ -11,8 +11,6 @@ public class TutorialManager : MonoBehaviour
     public Dialogue dialogue; 
     private Queue<string> sentences; // Queue to manage dialogue lines
     public GameObject fpsController;
-    private bool typing = false;
-    private string currentSentence;
 
     void Start()
     {
@@ -22,12 +20,9 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         // Progress dialogue when the space bar is pressed
-        if (!typing && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             DisplayNextSentence();
-        }
-        if(typing && Input.GetKeyDown(KeyCode.Space)){
-            printSentence();
         }
     }
 
@@ -55,33 +50,19 @@ public class TutorialManager : MonoBehaviour
             return;
         }
 
-        currentSentence = sentences.Dequeue();
+        string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(currentSentence));
+        StartCoroutine(TypeSentence(sentence));
     }
 
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = ""; // Clear the text
-        typing = true; // Mark typing as active
-
+        dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter; // Add one letter at a time
-            yield return new WaitForSeconds(0.05f); // Wait before adding the next letter
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(0.05f);
         }
-
-        typing = false; // Reset typing flag when finished
-    }
-
-    public void printSentence(){
-        if (typing)
-        {
-            StopAllCoroutines(); // Stop the typing coroutine
-            dialogueText.text = currentSentence; // Display the full current sentence
-            typing = false; // Reset typing flag
-        }
-        
     }
 
     void EndDialogue()

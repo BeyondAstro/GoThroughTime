@@ -14,9 +14,9 @@ public class book_interaction : MonoBehaviour
     public Text dialogueText;  
     private Queue<string> sentences;           // Dialogue for the book (set via Inspector)
     private bool playerNearby = false;       // Flag to check if the player is nearby
-    public GameObject fpsController;        // Reference to the FPS controller object
-    private bool typing = false;
-     private string currentSentence;
+    public GameObject fpsController; 
+           // Reference to the FPS controller object
+    private bool bookStory = false;
 
     void Start()
     {
@@ -31,17 +31,15 @@ public class book_interaction : MonoBehaviour
         {
             StartBookDialogue(bookDialogue);
             bookGlow.SetActive(false);
+            bookStory = true;
             nextStep.SetActive(false);
         }
-        if (playerNearby && Input.GetKeyDown(KeyCode.Space) && typing == false) // Detect player interaction
+        if (playerNearby && Input.GetKeyDown(KeyCode.Return)) // Detect player interaction
         {
             DisplayNextSentenceBook();
         }
-        if(playerNearby){
+        if(playerNearby && !bookStory){
             nextStep.SetActive(true);
-        }
-        if(typing == true && Input.GetKeyDown(KeyCode.Space)){
-            printSentence();
         }
 
     }
@@ -84,31 +82,18 @@ public class book_interaction : MonoBehaviour
             return;
         }
 
-        currentSentence = sentences.Dequeue();
+        string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(currentSentence));
+        StartCoroutine(TypeSentence(sentence));
     }
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = ""; // Clear the text
-        typing = true; // Mark typing as active
-
+        dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter; // Add one letter at a time
-            yield return new WaitForSeconds(0.05f); // Wait before adding the next letter
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(0.05f);
         }
-
-        typing = false; // Reset typing flag when finished
-    }
-    public void printSentence(){
-        if (typing) {
-        // Immediately complete the current sentence
-        StopAllCoroutines(); // Stop the typing coroutine
-        dialogueText.text = sentences.Peek(); // Display the current sentence fully
-        typing = false; 
-        }
-        
     }
     public void EndBookDialogue()
     {
