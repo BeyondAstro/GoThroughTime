@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/yssies stuff/learn_controls.unity
     guid: 268134a6a5f5a46c9883f72947df661a
   - enabled: 1
-    path: Assets/yssies stuff/yssie.unity
-    guid: 2b0bbd54bf81b4dea9d0d4cd1d36ff67
+    path: "Assets/Jenni\u2018s folder/stretchedTower.unity"
+    guid: a50b5ae3909194e4498f67b66cfd8b2d
   - enabled: 1
     path: Assets/Junior Items/End Scene .unity
     guid: be98a4032b20449dbbc25d1d6183741c
