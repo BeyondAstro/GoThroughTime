@@ -32,7 +32,7 @@ public class to_levelStart : MonoBehaviour
 
     public void SwitchScenes()
     {
-        SceneManager.LoadScene("yssie");
+        SceneManager.LoadScene("stretchedTower");
     }
 
 }
