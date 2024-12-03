@@ -10,6 +10,8 @@ public class book_interaction : MonoBehaviour
     public GameObject bookGlow;    // UI panel for the book dialogue
     public Dialogue bookDialogue;
     public Dialogue dialogue; 
+
+    public Text next;
     public GameObject nextStep; 
     public Text dialogueText;  
     private Queue<string> sentences;           // Dialogue for the book (set via Inspector)
@@ -33,6 +35,7 @@ public class book_interaction : MonoBehaviour
             bookGlow.SetActive(false);
             bookStory = true;
             nextStep.SetActive(false);
+            next.gameObject.SetActive(true);
         }
         if (playerNearby && Input.GetKeyDown(KeyCode.Return)) // Detect player interaction
         {
@@ -100,6 +103,7 @@ public class book_interaction : MonoBehaviour
         // Hide the book-specific dialogue panel
         bookDialoguePanel.SetActive(false);
         dialogueText.text = "";
+        next.gameObject.SetActive(false);
         EnableFPSControls();
         SceneManager.LoadScene("learn_controls");
     }

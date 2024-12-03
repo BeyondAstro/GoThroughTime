@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
 	public GameObject dialoguePanel; 
     public GameObject bookPanel;// UI panel for dialogue
     public Text dialogueText; // Dialogue text/
+    public Text next; 
     public Dialogue dialogue; 
     private Queue<string> sentences; // Queue to manage dialogue lines
     public GameObject fpsController;
@@ -16,6 +17,7 @@ public class TutorialManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         StartDialogue(dialogue);  // Automatically start dialogue on scene load
+        next.gameObject.SetActive(true);
     }
     void Update()
     {
@@ -70,6 +72,7 @@ public class TutorialManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         fpsController.GetComponent<CharacterController>().enabled = true;
+        next.gameObject.SetActive(false);
        
     }
 

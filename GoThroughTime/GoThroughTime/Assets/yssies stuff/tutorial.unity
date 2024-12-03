@@ -923,14 +923,14 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1038872077}
   bookPanel: {fileID: 1276131126}
   dialogueText: {fileID: 799380345}
+  next: {fileID: 1359868355}
   dialogue:
     sentences:
     - In a world between space and time, there lives an ancient clock maker who maintains
       the flow of time.
     - They are said to have great power... so great that enemies travel far and wide
-      just to try and overtake them.
-    - Legend says it has never been done but many have come close...
-    - After a series of explosions, you start to wake up...
+      to steal it, with no sucess.
+    - After a series of expolosions, you start to wake up...
   fpsController: {fileID: 16937455}
 --- !u!1 &968576443
 GameObject:
@@ -1608,6 +1608,7 @@ RectTransform:
   - {fileID: 1038872078}
   - {fileID: 1276131127}
   - {fileID: 1041358089}
+  - {fileID: 1359868354}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1679,6 +1680,86 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1359868353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1359868354}
+  - component: {fileID: 1359868356}
+  - component: {fileID: 1359868355}
+  m_Layer: 5
+  m_Name: next
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1359868354
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359868353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1293973376}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 249, y: -199}
+  m_SizeDelta: {x: 300, y: 70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1359868355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359868353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 77cf83ded29b44a1fb34212414e388f4, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: (click enter to continue)
+--- !u!222 &1359868356
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359868353}
+  m_CullTransparentMesh: 1
 --- !u!1 &1484741906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,21 +1835,14 @@ MonoBehaviour:
     - If you are reading this, something horrible has happened. The time remnants
       have finally found us.
     - 'I don''t have much time to write this, but the time remnants have come to
-      steal the source of our power: the clock hands.  Without all of the clock hands,
-      we are not able to stablize time.'
-    - When the time remnants steal the hands, it will set off an auto-destruct feature
-      on the clock, killing the time remnants in the area, scattering the hands,
-      and killing me.
-    - I made it so when you flip the last page of this book, you will be transported
-      to your old training grounds.. where you learned how to control time.
-    - Use what you learn there to explore the clock tower, find the hands and put
-      the clock back together. Once you have all three hands, you should remember
-      how to contruct the clock again.
-    - 'You won''t have much time. Now that the time remnants know about the chaos,
-      they will start sending more to collect the hands. '
-    - 'I know you can do this, Good luck. '
+      steal the source of our power: the clock hands.  '
+    - You need to re-learn how to control time in order to find the clock hands and
+      stabilze time again.
+    - You have to work fast. They are sending backup.
+    - I know you can do this, Good luck.
   dialogue:
     sentences: []
+  next: {fileID: 1359868355}
   nextStep: {fileID: 1041358088}
   dialogueText: {fileID: 410972941}
   fpsController: {fileID: 16937455}
