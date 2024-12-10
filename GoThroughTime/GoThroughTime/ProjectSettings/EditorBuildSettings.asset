@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Junior Items/Main Menu .unity
     guid: 6e6656d5c40dd42f8a4068932c009ef8
   - enabled: 1
-    path: Assets/yssies stuff/tutorial.unity
+    path: Assets/yssies stuff/scenes/tutorial.unity
     guid: 27f7e1f64b4e6489ea047288f043f6ac
   - enabled: 1
-    path: Assets/yssies stuff/learn_controls.unity
+    path: Assets/yssies stuff/scenes/learn_controls.unity
     guid: 268134a6a5f5a46c9883f72947df661a
   - enabled: 1
     path: "Assets/Jenni\u2018s folder/stretchedTower.unity"
