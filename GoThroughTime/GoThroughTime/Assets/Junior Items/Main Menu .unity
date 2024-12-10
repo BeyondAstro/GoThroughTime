@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 30872203}
   - component: {fileID: 30872202}
   - component: {fileID: 30872201}
+  - component: {fileID: 30872204}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -207,7 +208,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2090111417}
+      - m_Target: {fileID: 30872204}
         m_TargetAssemblyTypeName: MainMenuB, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -257,6 +258,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30872199}
   m_CullTransparentMesh: 1
+--- !u!114 &30872204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30872199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897a5b0e8759b4cefab195294dfcb553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &276140769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1308,7 @@ GameObject:
   - component: {fileID: 1823038402}
   - component: {fileID: 1823038401}
   - component: {fileID: 1823038400}
+  - component: {fileID: 1823038403}
   m_Layer: 0
   m_Name: Quit
   m_TagString: Untagged
@@ -1367,7 +1381,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2090111417}
+      - m_Target: {fileID: 1823038403}
         m_TargetAssemblyTypeName: MainMenuB, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -1417,6 +1431,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823038398}
   m_CullTransparentMesh: 1
+--- !u!114 &1823038403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823038398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897a5b0e8759b4cefab195294dfcb553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832047516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,7 +1809,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1977112198}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: credits, Assembly-CSharp
         m_MethodName: toCredits
         m_Mode: 1
