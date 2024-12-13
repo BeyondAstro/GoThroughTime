@@ -16,7 +16,6 @@ public class book_interaction : MonoBehaviour
     public Text dialogueText;  
     private Queue<string> sentences;           // Dialogue for the book (set via Inspector)
     private bool playerNearby = false;       // Flag to check if the player is nearby
-    public GameObject fpsController; 
            // Reference to the FPS controller object
     private bool bookStory = false;
 
@@ -44,6 +43,9 @@ public class book_interaction : MonoBehaviour
         if(playerNearby && !bookStory){
             nextStep.SetActive(true);
         }
+        if(!playerNearby && !bookStory){
+            nextStep.SetActive(false);
+        }
 
     }
     private void OnTriggerEnter(Collider book)
@@ -66,7 +68,6 @@ public class book_interaction : MonoBehaviour
     public void StartBookDialogue(Dialogue dialogue)
     {
         bookDialoguePanel.SetActive(true); // Show dialogue panel
-        DisableFPSControls();
 
         sentences.Clear();
 
@@ -86,34 +87,16 @@ public class book_interaction : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        dialogueText.text = sentence;
     }
-    IEnumerator TypeSentence(string sentence)
-    {
-        dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f);
-        }
-    }
+   
     public void EndBookDialogue()
     {
         // Hide the book-specific dialogue panel
         bookDialoguePanel.SetActive(false);
         dialogueText.text = "";
         next.gameObject.SetActive(false);
-        EnableFPSControls();
         SceneManager.LoadScene("learn_controls");
     }
-
-    public void DisableFPSControls()
-    {
-       
-    }
-
-    public void EnableFPSControls()
-    {}
        
 }

@@ -11,7 +11,7 @@ public class start_platformer : MonoBehaviour
 
    void Update(){
      // Check if the player presses the space bar
-     if (Input.GetKeyDown(KeyCode.A))
+     if (Input.GetKeyDown(KeyCode.Return))
         {
            HideAllUI();
         }
