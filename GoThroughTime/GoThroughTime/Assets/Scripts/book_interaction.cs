@@ -96,6 +96,7 @@ public class book_interaction : MonoBehaviour
         bookDialoguePanel.SetActive(false);
         dialogueText.text = "";
         next.gameObject.SetActive(false);
+        GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>().SetTimeStamp();
         SceneManager.LoadScene("learn_controls");
     }
        

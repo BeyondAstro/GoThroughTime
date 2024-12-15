@@ -32,6 +32,7 @@ public class to_levelStart : MonoBehaviour
 
     public void SwitchScenes()
     {
+        GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>().SetTimeStamp();
         SceneManager.LoadScene("stretchedTower");
     }
 
