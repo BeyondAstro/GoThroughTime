@@ -3393,7 +3393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e2567418bae4e99a76d3b848107b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: End Scene
+  NextLevel: Last 3 levels
 --- !u!1 &1271944122 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3354453053368413886, guid: 2a7e67c173059214fbcf28a759f5c95d, type: 3}
