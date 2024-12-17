@@ -1,26 +1,80 @@
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 public class CameraFilterController : MonoBehaviour
 {
     // Reference to the Post Process Volume component
     private PostProcessVolume postProcessVolume;
     
-    // You can add specific effects you want to toggle
-    private ColorGrading colorGrading;
-    private Vignette vignette;
-    private ChromaticAberration chromaticAberration;
+    // Reference to the Post Process Profile
+    [SerializeField]
+    private PostProcessProfile postProcessProfile;
     
-    private void Start()
+    // Effects
+    private ColorGrading colorGrading;
+    
+    private void Awake()
     {
-        // Get the Post Process Volume component
+        // Make sure this object persists across scenes if needed
+        // DontDestroyOnLoad(gameObject);
+        
+        InitializePostProcessing();
+        
+        // Subscribe to scene loading event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    private void OnDestroy()
+    {
+        // Unsubscribe from scene loading event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    private void InitializePostProcessing()
+    {
+        // Get or add Post Process Volume component
         postProcessVolume = GetComponent<PostProcessVolume>();
+        if (postProcessVolume == null)
+        {
+            postProcessVolume = gameObject.AddComponent<PostProcessVolume>();
+        }
         
-        // Get specific effects from the volume
-        postProcessVolume.profile.TryGetSettings(out colorGrading);
-        postProcessVolume.profile.TryGetSettings(out vignette);
-        postProcessVolume.profile.TryGetSettings(out chromaticAberration);
+        // Ensure we have a profile
+        if (postProcessProfile != null)
+        {
+            postProcessVolume.profile = postProcessProfile;
+        }
+        else if (postProcessVolume.profile == null)
+        {
+            // Create a new profile if none exists
+            postProcessProfile = ScriptableObject.CreateInstance<PostProcessProfile>();
+            postProcessVolume.profile = postProcessProfile;
+        }
         
+        // Get or create effects
+        if (!postProcessVolume.profile.TryGetSettings(out colorGrading))
+        {
+            colorGrading = postProcessVolume.profile.AddSettings<ColorGrading>();
+        }
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Reinitialize post-processing when a new scene loads
+        InitializePostProcessing();
+        
+        // Make sure the main camera has a Post Process Layer
+        Camera mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            PostProcessLayer layer = mainCamera.GetComponent<PostProcessLayer>();
+            if (layer == null)
+            {
+                layer = mainCamera.gameObject.AddComponent<PostProcessLayer>();
+                layer.volumeLayer = LayerMask.GetMask("Default");
+            }
+        }   
         // Start with the filter disabled
         SetFilterActive(false);
     }
@@ -33,10 +87,6 @@ public class CameraFilterController : MonoBehaviour
         // Alternatively, you can toggle specific effects
         if (colorGrading != null)
             colorGrading.active = isActive;
-        if (vignette != null)
-            vignette.active = isActive;
-        if (chromaticAberration != null)
-            chromaticAberration.active = isActive;
     }
 
     public void SetFilterInActive()
@@ -47,10 +97,6 @@ public class CameraFilterController : MonoBehaviour
         // Alternatively, you can toggle specific effects
         if (colorGrading != null)
             colorGrading.active = false;
-        if (vignette != null)
-            vignette.active = false;
-        if (chromaticAberration != null)
-            chromaticAberration.active = false;
     }
     
     // Example method to toggle the filter
@@ -62,6 +108,7 @@ public class CameraFilterController : MonoBehaviour
     // Example of triggering via input
     private void Update()
     {
+        
         // Toggle filter when F key is pressed
         if (Input.GetKeyDown(KeyCode.P))
         {
