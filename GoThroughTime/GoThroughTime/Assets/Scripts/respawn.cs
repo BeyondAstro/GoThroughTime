@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 public class respawn : MonoBehaviour
 {
    public Transform respawnPoint;
-   public string loadScene = "yssie";
+   public GameObject blocked;
+
+   void Start(){
+      blocked.gameObject.SetActive(false);
+   }
    void OnTriggerEnter(Collider other){
             if (other.gameObject.tag == "Player") {
                 other.gameObject.transform.position = respawnPoint.position;
-                SceneManager.LoadScene(loadScene);
+                blocked.gameObject.SetActive(true);
             }
       }
 }

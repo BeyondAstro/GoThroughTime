@@ -4,12 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameHandler : MonoBehaviour {
+public class Progress_Bar : MonoBehaviour {
     private GameObject player;
     public GameObject clock; // The clock UI element
     public GameObject[] hands; // Array to hold hand UI elements (secondHand, minHand, hourHand)
 
+    public GameObject secondHand; // The second hand element
+    public GameObject minuteHand; // The minute hand element
+    public GameObject hourHand; // The hour hand element
     public static int gotHands = 0; // Counter for collected hands
+
+    private bool finished = false;
 
     void Start() {
         player = GameObject.FindWithTag("Player");
@@ -39,6 +44,15 @@ public class GameHandler : MonoBehaviour {
     public void CollectHand() {
         gotHands++;
         UpdateStatsDisplay();
+        if(gotHands == 2){
+            SceneManager.LoadScene("LastLevel");
+        }
+        if (gotHands == 3){
+            finished = true;
+            //SceneManager.LoadScene("FinalScene");
+
+        }
+        
     }
 
     // Example method to detect collision with collectible hands

@@ -9,6 +9,7 @@ TagManager:
   - PauseMenuSlider
   - AudioManager
   - GameHandler
+  - Hands
   layers:
   - Default
   - TransparentFX
