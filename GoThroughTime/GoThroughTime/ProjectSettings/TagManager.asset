@@ -12,6 +12,9 @@ TagManager:
   - Hands
   - Platforms
   - Tower
+  - SecondHand
+  - MinuteHand
+  - HourHand
   layers:
   - Default
   - TransparentFX

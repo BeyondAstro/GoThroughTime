@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: -3115895082297014654}
   m_Layer: 0
   m_Name: hour_hand
-  m_TagString: Untagged
+  m_TagString: HourHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3881833398573507543
 Transform:
   m_ObjectHideFlags: 0
@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
+  blocked: {fileID: 0}
 --- !u!1001 &5418444088699096564
 PrefabInstance:
   m_ObjectHideFlags: 0

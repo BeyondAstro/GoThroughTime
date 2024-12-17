@@ -12,42 +12,53 @@ public class Progress_Bar : MonoBehaviour {
     public GameObject minuteHand; // The minute hand element
     public GameObject hourHand; // The hour hand element
 
-    public static int gotHands = 0; // Counter for collected hands
+    public int gotHands = 0; // Counter for collected hands
 
     private bool finished = false;
 
     void Start() {
-        UpdateStatsDisplay();
-        InitializeHands();
+        
+        for (int i = 0; i < hands.Length; i++){
+            hands[i].SetActive(false);
+        }
+        
+        clock.SetActive(true);
+        secondHand.SetActive(true);
+        minuteHand.SetActive(true);
+        hourHand.SetActive(true);
+
     }
 
-    // Initialize hands to be inactive
-    private void InitializeHands() {
-        foreach (GameObject hand in hands) {
-            hand.SetActive(false); // Deactivate all hands initially
-        }
-        clock.SetActive(true);
-         // Ensure the clock is active
-    }
 
     // Update the UI display based on collected hands
     public void UpdateStatsDisplay() {
-        // Activate the clock and the hands based on the number of collected hands
-        for (int i = 0; i < gotHands; i++) {
-            if (i < hands.Length) {
-                hands[i].SetActive(true); // Activate the hand corresponding to the collected count
-            }
+        if (gotHands < hands.Length) {
+            hands[gotHands].SetActive(true); // Activate the hand if it's within bounds
+        } else {
+            Debug.LogWarning("Attempted to activate a hand that doesn't exist in the array.");
         }
     }
 
-    // Call this method when the player collects a hand
     public void CollectHand() {
-        gotHands++;
-        UpdateStatsDisplay();
-        
-        
+        if (gotHands < hands.Length) {
+            showHand(gotHands); // Show the corresponding hand
+            UpdateStatsDisplay(); // Update the UI
+            gotHands++; // Increment after updating
+        } else {
+            Debug.LogWarning("Cannot collect more hands. All hands are already collected.");
+        }
     }
 
-  
+    public void showHand(int gotHand) {
+       if (gotHand == 0){
+            secondHand.SetActive(false);
+        }
+        if (gotHand == 1){
+            minuteHand.SetActive(false);
+        }
+        if (gotHand == 2){
+            hourHand.SetActive(false);
+        }
+    }
 
 }

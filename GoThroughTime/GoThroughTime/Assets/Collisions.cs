@@ -6,20 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Collisions : MonoBehaviour {
     public Progress_Bar progressBar;
-
+    
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("SecondHand")) {
+        if (other.CompareTag("Player")) {
             progressBar.CollectHand();
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("MinuteHand")) {
-            progressBar.CollectHand();
-           // SceneManager.LoadScene("LastLevel");
-            Destroy(other.gameObject);
-        }
-        if (other.CompareTag("HourHand")) {
-            progressBar.CollectHand();
-            Destroy(other.gameObject);
         }
     }
+
 }

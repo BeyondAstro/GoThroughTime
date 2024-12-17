@@ -15,7 +15,6 @@ public class LevelChange : MonoBehaviour
         string sceneName = currentScene.name;
         if (other.gameObject.tag == "Player")
         {
-
             SceneManager.LoadScene(NextLevel);
         }
 
