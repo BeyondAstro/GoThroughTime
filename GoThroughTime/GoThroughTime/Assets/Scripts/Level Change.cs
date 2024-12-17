@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
-    public string NextLevel = "End Scene";
 
 
 
@@ -15,7 +14,7 @@ public class LevelChange : MonoBehaviour
         string sceneName = currentScene.name;
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(NextLevel);
+            SceneManager.LoadScene("LastLevel");
         }
 
     }

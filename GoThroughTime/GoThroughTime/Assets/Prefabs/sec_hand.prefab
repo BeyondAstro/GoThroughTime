@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
-  loadScene: End Scene
+  blocked: {fileID: 0}
 --- !u!1001 &2106315696009056377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,7 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e2567418bae4e99a76d3b848107b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevel: Last 3 levels
 --- !u!4 &1923489534009309074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 15c586c4c6ab43c479b05f2b8e000007, type: 3}
