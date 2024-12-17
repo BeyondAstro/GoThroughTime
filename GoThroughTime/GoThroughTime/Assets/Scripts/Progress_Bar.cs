@@ -5,19 +5,18 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Progress_Bar : MonoBehaviour {
-    private GameObject player;
     public GameObject clock; // The clock UI element
     public GameObject[] hands; // Array to hold hand UI elements (secondHand, minHand, hourHand)
 
     public GameObject secondHand; // The second hand element
     public GameObject minuteHand; // The minute hand element
     public GameObject hourHand; // The hour hand element
+
     public static int gotHands = 0; // Counter for collected hands
 
     private bool finished = false;
 
     void Start() {
-        player = GameObject.FindWithTag("Player");
         UpdateStatsDisplay();
         InitializeHands();
     }
@@ -27,7 +26,8 @@ public class Progress_Bar : MonoBehaviour {
         foreach (GameObject hand in hands) {
             hand.SetActive(false); // Deactivate all hands initially
         }
-        clock.SetActive(true); // Ensure the clock is active
+        clock.SetActive(true);
+         // Ensure the clock is active
     }
 
     // Update the UI display based on collected hands
@@ -44,23 +44,10 @@ public class Progress_Bar : MonoBehaviour {
     public void CollectHand() {
         gotHands++;
         UpdateStatsDisplay();
-        if(gotHands == 2){
-            SceneManager.LoadScene("LastLevel");
-        }
-        if (gotHands == 3){
-            finished = true;
-            //SceneManager.LoadScene("FinalScene");
-
-        }
+        
         
     }
 
-    // Example method to detect collision with collectible hands
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Hand")) {
-            CollectHand();
-            Destroy(other.gameObject); // Destroy the collected hand object
-        }
-    }
+  
 
 }
