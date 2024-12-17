@@ -20,18 +20,29 @@ public class FPSController : MonoBehaviour
     float rotationX = 0;
 
     public bool canMove = true;
+    bool mainMenu = false;
 
     
     CharacterController characterController;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
+        if(mainMenu == false && Input.GetKeyDown(KeyCode.Escape)){
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            mainMenu = true;
+        }
+        else if(mainMenu == true && Input.GetKeyDown(KeyCode.Escape)){
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            mainMenu = false;
+        }
 
         #region Handles Movment
         Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -46,6 +57,7 @@ public class FPSController : MonoBehaviour
 
         #endregion
 
+  
         #region Handles Jumping
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {

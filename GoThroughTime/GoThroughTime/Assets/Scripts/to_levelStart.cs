@@ -18,6 +18,12 @@ public class to_levelStart : MonoBehaviour
         {
             SwitchScenes();
         }
+        if (playerNearby){
+            direction.gameObject.SetActive(true);
+        }
+        if (!playerNearby){
+            direction.gameObject.SetActive(true);
+        }
 
     }
     private void OnTriggerEnter(Collider book)
@@ -26,7 +32,6 @@ public class to_levelStart : MonoBehaviour
         {
             Debug.Log("Book touched!");
             playerNearby = true;
-            direction.gameObject.SetActive(true);
         }
     }
 
