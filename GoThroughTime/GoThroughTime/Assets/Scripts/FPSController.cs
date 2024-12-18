@@ -34,13 +34,13 @@ public class FPSController : MonoBehaviour
     void Update()
     {
         if(mainMenu == false && Input.GetKeyDown(KeyCode.Escape)){
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            mainMenu = true;
-        }
-        else if(mainMenu == true && Input.GetKeyDown(KeyCode.Escape)){
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            mainMenu = true;
+        }
+        if(mainMenu == true && Input.GetKeyDown(KeyCode.Escape)){
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             mainMenu = false;
         }
 
