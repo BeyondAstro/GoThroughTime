@@ -8,9 +8,11 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour{
     public static bool GameIsPaused = false;
 
+    public GameObject controller;
+
     public GameObject pauseMenuUI;
 
-     public AudioMixer mixer;
+    public AudioMixer mixer;
     public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
 
@@ -39,11 +41,18 @@ public class PauseMenu : MonoBehaviour{
             }
         }
     }
-
     public void Resume(){
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        
+        if (controller != null) {
+            FPSController fpsController = controller.GetComponent<FPSController>();
+            if (fpsController != null) {
+                fpsController.LockCursor();
+                fpsController.mainMenu = false; // Set mainMenu to false
+            }
+        }
     }
 
     public void Pause (){

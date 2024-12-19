@@ -20,7 +20,7 @@ public class FPSController : MonoBehaviour
     float rotationX = 0;
 
     public bool canMove = true;
-    bool mainMenu = false;
+    public bool mainMenu = false;
 
     
     CharacterController characterController;
@@ -30,18 +30,27 @@ public class FPSController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    public void LockCursor() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     void Update()
     {
         if(mainMenu == false && Input.GetKeyDown(KeyCode.Escape)){
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            mainMenu = true;
-        }
-        if(mainMenu == true && Input.GetKeyDown(KeyCode.Escape)){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            mainMenu = true;
+        }
+
+        if(mainMenu == true && Input.GetKeyDown(KeyCode.Escape)){
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             mainMenu = false;
+        }
+        if (mainMenu == true){
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         #region Handles Movment
