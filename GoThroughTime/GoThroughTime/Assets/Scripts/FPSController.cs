@@ -27,33 +27,41 @@ public class FPSController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        /*
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Screen.lockCursor = true;
+        */
     }
+    /*
     public void LockCursor() {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    
+    public void UnLockCursor() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    */
 
+//NOTE: mainMenu = PauseMenu
     void Update()
     {
+/*
         if(mainMenu == false && Input.GetKeyDown(KeyCode.Escape)){
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            UnLockCursor();
             mainMenu = true;
         }
 
         if(mainMenu == true && Input.GetKeyDown(KeyCode.Escape)){
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            LockCursor();
             mainMenu = false;
         }
         if (mainMenu == true){
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            UnLockCursor();
         }
-
+*/
         #region Handles Movment
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);

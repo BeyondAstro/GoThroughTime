@@ -8,7 +8,7 @@ public class credits : MonoBehaviour
 {
     public void toCredits()
     {
-        SceneManager.LoadScene("credits");
+        SceneManager.LoadScene("Credits");
     }
     public void toMainMenu()
     {

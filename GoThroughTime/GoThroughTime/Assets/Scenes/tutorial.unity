@@ -6535,6 +6535,10 @@ PrefabInstance:
       propertyPath: m_ShowCustomSorter
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3945706585828407078, guid: 021e65dc04b72495f9cd2cd924587f9f, type: 3}
+      propertyPath: walkSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5968204164139762304, guid: 021e65dc04b72495f9cd2cd924587f9f, type: 3}
       propertyPath: m_RootOrder
       value: 4

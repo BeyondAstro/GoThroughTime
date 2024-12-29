@@ -29,6 +29,7 @@ public class PauseMenu : MonoBehaviour{
     void Start(){
         pauseMenuUI.SetActive(false);
         GameIsPaused = false;
+        UnLockCursor();
     }
 
     void Update (){
@@ -49,7 +50,7 @@ public class PauseMenu : MonoBehaviour{
         if (controller != null) {
             FPSController fpsController = controller.GetComponent<FPSController>();
             if (fpsController != null) {
-                fpsController.LockCursor();
+                //fpsController.LockCursor();
                 fpsController.mainMenu = false; // Set mainMenu to false
             }
         }
@@ -76,6 +77,16 @@ public class PauseMenu : MonoBehaviour{
     public void SetLevel(float sliderValue){
         mixer.SetFloat("MusicVolume", Mathf.Log10 (sliderValue) * 20);
         volumeLevel = sliderValue;
+    }
+
+    public void LockCursor() {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+    
+    public void UnLockCursor() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
 }
