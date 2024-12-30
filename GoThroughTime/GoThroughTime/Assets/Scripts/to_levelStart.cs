@@ -16,7 +16,7 @@ public class to_levelStart : MonoBehaviour
     }
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.A)) // Detect player interaction
+        if (playerNearby && Input.GetKeyDown(KeyCode.Return)) // Detect player interaction
         {
             SwitchScenes();
         }
