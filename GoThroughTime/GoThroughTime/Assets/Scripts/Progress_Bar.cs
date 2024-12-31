@@ -13,11 +13,7 @@ public class Progress_Bar : MonoBehaviour {
     public GameObject hourHand; // The hour hand element
     public int gotHands = 0; // Counter for collected hands
 
-    private bool finished = false;
-
-    void Start() {
-        
-        gotHands = PlayerPrefs.GetInt("GotHands", 0); 
+    void Start() { 
         
         for (int i = 0; i < hands.Length; i++){
             hands[i].SetActive(false);
@@ -32,10 +28,8 @@ public class Progress_Bar : MonoBehaviour {
     }
 
     void Update() {
-        // Save progress periodically or when it changes
-        PlayerPrefs.SetInt("GotHands", gotHands);
-        if(gotHands== 2){
-            finished = true;
+        if(gotHands== 3){
+            Debug.Log("COLLECTED three HANDS");
             clock.SetActive(false);
             secondHand.SetActive(false);
             minuteHand.SetActive(false);
